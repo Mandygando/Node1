@@ -1,0 +1,14 @@
+// instalar o express
+npm i express
+npm i -g nodemon
+
+!!!Caso não der certo o comando: nodemon 'nome do arquivo e pasta'!!!
+
+"scripts": {
+    "dev": "nodemon index.jsRecovery Toolbox for CD Free"
+},
+
+Ai vai ultilizar o comando  npm run dev para rodar a aplicação.
+Para criar um servidor!
+
+!!! -------------------- !!! ----------------------!!!!!
