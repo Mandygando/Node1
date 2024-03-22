@@ -72,12 +72,38 @@ router.post('/ex4', function(req, res){
     res.json({salarioBruto, imposto, gratificacao, salarioReceber})
 });
 
+router.post('/ex5', function(req, res){
+    const { numeroAluno, nota1, nota2, nota3, mediaExercicios } = req.body;
 
+    const mediaAproveitamento = parseFloat(((nota1 + nota2 * 2 + nota3 * 3 + mediaExercicios) / 7).toFixed(2));
 
-//ex5
+    let conceito, status;
+    if (mediaAproveitamento >= 9.0) {
+        conceito = 'A';
+        status = 'APROVADO';
+    } else if (mediaAproveitamento >= 7.5) {
+        conceito = 'B';
+        status = 'APROVADO';
+    } else if (mediaAproveitamento >= 6.0) {
+        conceito = 'C';
+        status = 'APROVADO';
+    } else if (mediaAproveitamento >= 4.0) {
+        conceito = 'D';
+        status = 'REPROVADO';
+    } else {
+        conceito = 'E';
+        status = 'REPROVADO';
+    }
 
-
-
+    res.json({ 
+        numeroAluno, 
+        notas: { nota1, nota2, nota3 }, 
+        mediaExercicios, 
+        mediaAproveitamento, 
+        conceito,
+        status
+    });
+});
 
 router.post('/ex6', function(req, res){
     const { altura, sexo } = req.body;
